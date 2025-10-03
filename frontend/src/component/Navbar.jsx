@@ -40,23 +40,42 @@ function Navbar() {
   }
   return (
     <nav
-      className="navbar navbar-expand-lg shadow px-3"
-      style={{
-        backgroundColor: "#e0f0ff",
-        padding: "1rem 0",
-      }}
+      className="navbar navbar-expand-lg navbar-light shadow"
+      style={{ backgroundColor: "#e0f0ff", padding: "1rem" }}
     >
-      <div>
-        Welcome <span>{data.name}</span>
-      </div>
-      <div className="container-fluid justify-content-center">
-        <Link className="navbar-brand  fw-bold fs-4" to="/">
-          LEARNING ASSIGN HUB
+      <div className="container-fluid">
+        <Link className="navbar-brand fw-bold fs-4" to="/">
+          Learning Assign Hub
         </Link>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          className="collapse navbar-collapse justify-content-between"
+          id="navbarContent"
+        >
+          <div className="d-lg-block d-none">
+            <span className="fw-semibold text-secondary">
+              Welcome, <span className="text-primary">{data.name}</span>
+            </span>
+          </div>
+          <div className="ms-auto">
+            <button className="btn btn-danger" onClick={handleLogout}>
+              Log Out
+            </button>
+          </div>
+        </div>
       </div>
-      <button className="btn btn-danger me-3" onClick={handleLogout}>
-        Log out
-      </button>
     </nav>
   );
 }
